@@ -1,0 +1,21 @@
+extends ../base.pug
+
+block variables
+	- var template = 'home'
+
+mixin pageWrapper
+	section#page_wrapper.screen
+
+block content
+	h1.collections_tittle home
+
+	pageWrapper
+		block wrapper
+
+			include ../partials/intro
+			include ../partials/project
+			include ../partials/misc
+
+	footer
+		include ../partials/footer
+	

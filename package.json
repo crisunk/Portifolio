@@ -1,0 +1,58 @@
+{
+  "name": "portifolio",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "backend:build": "nodemon --inspect node app.js",
+    "backend:development": "nodemon app.js",
+    "frontend:build": "webpack --progress --config webpack.config.build.js",
+    "frontend:development": "webpack-dev-server --progress --config webpack.config.development.js",
+    "start": "concurrently  --kill-others \"npm run backend:development\" \"npm run frontend:development\""
+  },
+  "author": "Cristiano Cruz Rodrigues",
+  "devDependencies": {
+    "babel-loader": "^9.1.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-import": "^2.29.0",
+    "file-loader": "^6.2.0",
+    "got": "^14.0.0",
+    "image-minimizer-webpack-plugin": "^3.8.3",
+    "imagemin": "^8.0.1",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^10.0.1",
+    "jpegtran-bin": "^7.0.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "node-fetch": "^3.3.2",
+    "patch": "^0.0.1",
+    "postcss-loader": "^7.3.3",
+    "pug": "^3.0.2",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
+    "semver-regex": "^4.0.5",
+    "sharp": "^0.33.0",
+    "terser-webpack-plugin": "^5.3.9",
+    "trim-newlines": "^5.0.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-merge": "^5.10.0"
+  },
+  "overrides": {
+    "got": "$got",
+    "semver-regex": "$semver-regex",
+    "trim-newlines": "$trim-newlines"
+  },
+  "dependencies": {
+    "@prismicio/client": "^7.3.1",
+    "@prismicio/helpers": "^2.3.9",
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodelist-foreach-polyfill": "^1.2.0",
+    "nodemon": "^3.0.2"
+  }
+}
