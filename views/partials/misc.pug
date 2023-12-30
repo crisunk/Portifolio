@@ -1,13 +1,13 @@
-.misc_wrapper
-	.misc_title
-		span.title  Misc
+section.misc_wrapper
+	.gallery
+		.misc_title
+			span.title  Misc
 
-	.gallery-wrapper
-		img1(src='images/', alt='texto alt')
-		img2(src='images/', alt='texto alt')
-		img3(src='images/', alt='texto alt')
-		img4(src='images/', alt='texto alt')
-	.seta-wrapper
-		svg.icon
+		.misc__gallery
+			.gallery__wrapper
+				each misc_images in home
+					figure.misc__gallery__media
+						img.about__gallery__media__image(alt=misc_images.alt data-src=misc_images.url)
 
-
+		.seta__wrapper
+			svg.icon
