@@ -5,6 +5,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+// const PugPlugin = require('pug-plugin');
+
+
 
 const IS_DEVELOPMENT = process.env.NODE_ENV === 'dev';
 
@@ -103,4 +106,24 @@ module.exports = {
     minimize: true,
     minimizer: [new TerserPlugin()]
   }
-};
+}
+
+// module.exports = {
+//   // ...
+//   module: {
+//     rules: [
+//       // ...
+//       {
+//         test: /\.pug$/,
+//         loader: '@webdiscus/pug-loader'
+//       },
+//       {
+//         test: /\.(png|jpg|jpeg|svg|ico)/,
+//         type: 'asset/resource',
+//         generator: {
+//           filename: 'assets/images/[name].[hash:8][ext]',
+//         },
+//       },
+//     ]
+//   },
+// }
