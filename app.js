@@ -59,15 +59,16 @@ app.get('/', async (req, res) => {
   try {
     const api = await initApi(req)
     const intro = await api.getSingle('intro')
-    const project = await api.getSingle('project')
+		const meta_data = await api.getSingle('meta_data')
+    const project = await api.getAllByType('project')
     const misc = await api.getSingle('misc')
     const about = await api.getSingle('about')
 
-    const home = [intro, project, misc, about]
+    const home = [intro, project, misc, about, meta_data]
 
-    console.log('Dados de misc.data.gallery:', misc.data.gallery)
+    console.log('seus dados:', project)
 
-    res.render('pages/home', { home })
+    res.render('pages/home', { home, about, project })
   } catch (error) {
     console.error('Erro ao buscar documentos do Prismic:', error)
     res.status(500).send('Erro ao carregar conteúdo. Por favor, tente novamente mais tarde.')

@@ -1,43 +1,34 @@
 section#page_wrapper.screen
 
 
-	.about-photo
-		span.text_tittle About
-		.img-wrapper
-			div(style="background-image: url('img.jpg')")
+	.about
+		.text__wrapper
+			span.text_tittle=home[3].data.bio
+			.img__wrapper
+				figure.bio__image__box
+								img.bio__image( src=home[3].data.bio_image.url alt=home[3].data.bio_image.alt)
 
 
 	.about-discription
 		span.text_tittle
-			p.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et elit ante.
-				Sed eget laoreet dolor. Ut nec leo et tortor rutrum tempor. Mauris dui massa, condimentum
-				sodales ex vitae, dapibus laoreet elit. Maecenas ex diam, dictum et interdum quis, lacinia
-				non magna. Proin imperdiet felis turpis, ut egestas dolor blandit id. Vivamus varius enim nulla,
-				ac porta libero egestas et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			p=home[3].data.bio
 
 		.contact
 			span.text_email
-				p Lets talk.
-				br Send-me a
-				a(href="mail:to") Email.
+				.line__01
+					|Lets talk.
+				.line__02
+				| Send-me a&nbsp;
+				a(href="mailto:mail@mail.com") Email
+					.detail_email
 
-			.detail_email
 
-		.socilmidia
-			ul.navigation_list
-				li.navigation_list_item
-					a.navigation_list_link(href="/intro") Instagram
-					.detail-instagram
 
-				.serapation
-
-				li.navigation_list_item
-					a.navigation_list_link(href="/about") Twiter or X
-					.detail-twitter
-
-				.serapation
-
-				li.navigation_list_item
-					a.navigation_list_link(href="/misc") LinkedIn
-					.detail-linkedin
+		.socialmidia
+			.navigation_list
+				each item in home[3].data.social
+					.navigation_list_item
+						span.text_tittle
+							a.navigation__list__link(href="item.url")=item.name
+								.detail__(class=`separation__line__${index % 3 + 1}`)
+						.serapation
