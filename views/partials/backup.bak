@@ -1,0 +1,18 @@
+
+		.project__images__wrapper
+			.project__images__content
+				.slice__wrapper
+
+					each section in project_intern.data.body
+						if section.slice_type == 'image'
+							if section.slice_type.video == '[]'
+
+								.slice_container
+
+									.image__wrapper
+										img(src=items.url, alt=items.alt)
+
+								if else section.slice_type.image == 'null'
+									.video__wrapper
+										video(id="video-content", controls)
+											source(src=video.text, type="video/mmp4")

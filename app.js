@@ -75,8 +75,34 @@ app.get('/', async (req, res) => {
   }
 })
 
-// Inicialização do servidor
+// app.get('projects/:uid', async (req, res) => {
 
+//     const api = await initApi(req)
+// 		const uid = req.params.uid
+// 		const project_intern = await client.getSingle('project_intern')
+// 		const meta_data = await api.getSingle('meta_data')
+
+// 		res.render('pages/projects', { project_intern,meta_data })
+
+
+// 	})
+
+
+app.get('/projects/:uid', async (req, res) => {
+	const api = await initApi(req)
+	const project_intern = await api.getByUID('project', req.params.uid)
+	const meta_data = await api.getSingle('meta_data')
+
+	const consolidate = [project_intern, meta_data]
+
+	console.log('dados consolidados:', consolidate)
+
+	res.render('pages/projects', { consolidate, project_intern, meta_data })
+
+})
+
+
+// Inicialização do servidor
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);

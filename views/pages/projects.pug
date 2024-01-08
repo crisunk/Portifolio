@@ -1,18 +1,66 @@
 extends ../base.pug
 
-//- block variables
-//- 	- var template = 'home'
 
-mixin pageWrapper
-	section#page_wrapper.screen
+pageWrapper
+	block wrapper
+	.project__intro__wrapper
 
-block content
-	h1.collections_tittle home
+		.project__intro
 
+			.project__about
+				while project_intern.data
+
+				h2.project_tittle item.name
+
+					.project__year__type
+						span.text#year=item.data.year
+						span.text#type=item.data.type
+
+
+			.project__description
+				span.text#description=item.data.description
+
+	.project__content__wrapper
+		.project__images__content
+			.slice__wrapper
+				each section in project_intern.data.body
+					if section.slice_type === 'image' && section.primary.image
+						.slice_container
+							.image__wrapper
+								img(src=section.primary.image.url, alt=section.primary.image.alt)
+					else if section.slice_type === 'video' && section.primary.video
+						.video__wrapper
+							video(id="video-content", controls)
+								source(src=section.primary.video.url, type="video/mp4")
+
+			.project__images__wrapper
+				.project__images__content
+					.slice__wrapper
+						each section in project_intern.data.body
+							if section.slice_type === 'image' && section.primary.image
+								.slice_container
+									.image__wrapper
+										img(src=section.primary.image.url, alt=section.primary.image.alt)
+							else if section.slice_type === 'video' && section.primary.video
+								.video__wrapper
+									video(id="video-content", controls)
+										source(src=section.primary.video.url, type="video/mp4")
+
+
+						each section in project.data.body
+							if section.slice_type == 'credencials'
+										.project_credencials_wrapper
+											.credencials_container
+												each item in items
+													.credencial(class=id[index % classes.length])
+														span.credencial_tittle=items.credits_title
+														span.credencial_description=items.credits_text
+
+		include ../partials/next_project
 
 
 	footer
-	//- pre.
-	//- 	!{JSON.stringify(home, null, 2)}
+		pre.
+			!{JSON.stringify(home, null, 2)}
 
 	include ../partials/footer

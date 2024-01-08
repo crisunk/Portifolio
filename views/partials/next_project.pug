@@ -1,0 +1,23 @@
+section#project_wrapper.screen
+
+		.next__project__section
+			.next__wrapper
+				.next__content
+					span.next
+
+					.next__box
+						.project__box
+						span.text_tittle=projectItem.data.name
+
+						.discription_type
+							span.project-type=projectItem.data.type
+
+						.text__description
+							span.text_discription=projectItem.data.description
+
+						button.button__arrow(href='/projects/' + projectItem.uid)
+							span.button_text
+							| See more
+						figure.icon__arrow
+						svg
+
