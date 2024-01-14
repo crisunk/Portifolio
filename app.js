@@ -75,14 +75,14 @@ app.get('/', async (req, res) => {
   }
 })
 
-// app.get('projects/:uid', async (req, res) => {
+// app.get('/projects/:uid', async (req, res) => {
 
 //     const api = await initApi(req)
 // 		const uid = req.params.uid
-// 		const project_intern = await client.getSingle('project_intern')
+// 		const project_intern = await api.getByUID('project')
 // 		const meta_data = await api.getSingle('meta_data')
 
-// 		res.render('pages/projects', { project_intern,meta_data })
+// 		res.render('pages/projects', { project_intern, meta_data })
 
 
 // 	})
@@ -95,7 +95,8 @@ app.get('/projects/:uid', async (req, res) => {
 
 	const consolidate = [project_intern, meta_data]
 
-	console.log('dados consolidados:', consolidate)
+
+	console.log('dados consolidados:',project_intern)
 
 	res.render('pages/projects', { consolidate, project_intern, meta_data })
 

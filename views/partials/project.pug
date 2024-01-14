@@ -14,11 +14,9 @@ section#project_wrapper.screen
 					.text__description
 						span.text_discription=projectItem.data.description
 
-					button.button__arrow(href='/projects/' + projectItem.uid)
-						span.button_text
-						| See more
-					figure.icon__arrow
-					svg
+					button.wrapper__tbn
+						a.button__arrow( href='/projects/' + projectItem.uid)
+							span.button_text See more
 
 				.img__background_wrapper
 					figure.background__image

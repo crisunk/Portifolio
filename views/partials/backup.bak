@@ -16,3 +16,61 @@
 									.video__wrapper
 										video(id="video-content", controls)
 											source(src=video.text, type="video/mmp4")
+
+
+					button.button__arrow(type='button' data-action='click' href='/projects/' + projectItem.uid)
+						span.button_text
+						| See more
+						figure.icon__arrow
+
+
+											.project__images__wrapper
+						.project__images__content
+							.slice__wrapper
+								each section in project_intern.data.body
+									if section.slice_type === 'image' && section.primary.image
+										.slice_container
+											.image__wrapper
+												img(src=section.primary.image.url, alt=section.primary.image.alt)
+									else if section.slice_type === 'video' && section.primary.video
+										.video__wrapper
+											video(id="video-content", controls)
+												source(src=section.primary.video.url, type="video/mp4")
+
+
+					each section in project_intern.data.body
+						if section.slice_type == 'image' && section.items.image
+							.slice_container
+								.image__wrapper
+									img(src=section.items.image.url, alt=section.items.image.alt)
+						else if section.slice_type === 'image' && section.items.video
+							.video__wrapper
+								video(id="video-content", controls)
+									source(src=section.items.video.url, type="video/mp4")
+
+
+					//- each section in project_intern.data.body
+					//- 	if section.slice_type == 'image'
+
+					//- 		.slice_container
+					//- 			each projectItem in section.items
+
+					//- 				.image__wrapper
+					//- 					img(src=projectItem.image.url alt=projectItem.image.alt)
+
+					//- 	else if section.slice_type == 'image' && section.video
+					//- 		.video__wrapper
+					//- 			video(id="video-content", controls)
+					//- 				source(src=section.video.text, type="video/mp4")
+
+
+
+					//- each section in project_intern.data.body
+					//- 	if section.slice_type == 'image'
+					//- 		if section.items.video
+
+					//- 		.slice_container
+					//- 			each projectItem in section.items
+					//- 				.video__wrapper=projectItem.video.text
+					//- 					video(id="video-content", controls)
+					//- 						source(src=projectItem.video.text, type="video/mp4")
