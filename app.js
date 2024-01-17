@@ -117,7 +117,7 @@ app.get('/projects/:uid', async (req, res) => {
 
 
     // similar content query
-		const similar_content = await api.getSingle('project', Prismic.filter.not("project", req.params.uid))
+		const similar_content = await api.getSingle('project', Prismic.filter.not( req.params.uid))
 
     console.log('dados consolidados:', {similar_content})
 
