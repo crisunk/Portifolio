@@ -5,7 +5,10 @@ const app = express()
 const path = require('path')
 const Prismic = require('@prismicio/client')
 const PrismicH = require('@prismicio/helpers')
+// const { type } = require('os')
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args))
+
+
 
 const port = 3000
 
@@ -75,6 +78,8 @@ app.get('/', async (req, res) => {
   }
 })
 
+// working code
+
 // app.get('/projects/:uid', async (req, res) => {
 
 //     const api = await initApi(req)
@@ -88,19 +93,44 @@ app.get('/', async (req, res) => {
 // 	})
 
 
+
+// app.get('/projects/:uid', async (req, res) => {
+// 	const api = await initApi(req)
+// 	const project_intern = await api.getByUID('project', req.params.uid)
+// 	const meta_data = await api.getSingle('meta_data')
+// 	const consolidate = [project_intern, meta_data]
+//   const similar_content = await api.getSingle('project',{
+//     filters: [Prismic.filter.not("my.project.uid", "type")],
+//   })
+
+// 	console.log('dados consolidados:',similar_content)
+
+// 	res.render('pages/projects', { consolidate, project_intern, meta_data, similar_content })
+
+// })
+
 app.get('/projects/:uid', async (req, res) => {
-	const api = await initApi(req)
-	const project_intern = await api.getByUID('project', req.params.uid)
-	const meta_data = await api.getSingle('meta_data')
+  try {
+    const api = await initApi(req);
+    const project_intern = await api.getByUID('project', req.params.uid);
+    const meta_data = await api.getSingle('meta_data')
 
-	const consolidate = [project_intern, meta_data]
 
+    // similar content query
+		const similar_content = await api.getSingle('project', Prismic.filter.not("project", req.params.uid))
 
-	console.log('dados consolidados:',project_intern)
+    console.log('dados consolidados:', {similar_content})
 
-	res.render('pages/projects', { consolidate, project_intern, meta_data })
+    res.render('pages/projects', { project_intern, meta_data, similar_content });
+  } catch (error) {
+    console.error('Erro ao obter dados do Prismic:', error)
 
+    // in case of errors
+
+    res.status(500).send('Erro interno ao processar a solicitação.')
+  }
 })
+
 
 
 // Inicialização do servidor
