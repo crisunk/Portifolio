@@ -2,58 +2,77 @@ extends ../base.pug
 
 
 block content
-	section#page_wrapper.screen
+	section.projects
 		//  content
-		article.project_wrapper
+		article.projects__wrapper
 
 			.project__intro
 
 
-					div.project__about
-						project_tittle=project_intern.data.name
+					.projects__about
+						.project_tittle=project_intern.data.name
 
-							.project__year__type
-								span.text#year=project_intern.data.year
-								span.text#type=project_intern.data.type
+							.projects__year__type
+								span.projects__text__year=project_intern.data.year
+								span.projects__text__type=project_intern.data.type
 
-							.project__description
-								span.text#description=project_intern.data.description
+							.projects__description
+								span.projects__text__description=project_intern.data.description
 
-			.project__content__wrapper
-				.project__images__content
-					.slice__wrapper
+			.projects__content
+				.projects__images__content
+					.projects__slice__wrapper
 
 						each section in project_intern.data.body
 							if section.slice_type == 'image'
 
-								.slice_container__images
+								.projects__slice__container
 									each projectItem, index in section.items
-										.image__wrapper(id=`image-${index + 1}`)
-											img(src=projectItem.image.url alt=projectItem.image.alt)
+										.projects__image__wrapper(id=`image-${index + 1}`)
+											img.projects__image(src=projectItem.image.url alt=projectItem.image.alt)
 
 							if section.slice_type == 'video_content'
 
-								.slice_container__media
+								.projects__slice__container__media
 									each projectItem, index in section.items
-										.media__wrapper
-											video(id=`video-content-${index + 1}`, controls, class=`media`)
+										.projects__media
+											video.projects__video__wrapper(id=`video-content-${index + 1}`, controls, class=`media`)
 												source(src=projectItem.video.text, type="video/mp4")
 
+							else if section.slice_type === 'description'
+								.projects__description_wrapper
+									.projects__description_container
+										each projectItem in section.items
+											if section.items.length > 1
+												.projects__description__multi__collumn
+													span.projects__description__tittle=projectItem.tittle
+													span.projects__description__sub-tittle=projectItem.subtittle
+													span.projects__description__text=projectItem.text
+
+											else if section.items.length < 2
+												.projects__description__one__collumn
+													.projects__title_discription
+														span.projects__description__tittle=projectItem.tittle
+													.projects__collumn
+														span.projects__description__sub-tittle=projectItem.subtittle
+														span.projects__description__text=projectItem.text
 
 
 							else if section.slice_type === 'credencials'
-								.project_credencials_wrapper
-									.credencials_container
+								.projects__credencials
+									.projects__credencials__wrapper
 										each projectItem in section.items
-											.credencial
-												span.credencial_tittle=projectItem.credits_title
-												span.credencial_description=projectItem.credits_text
-		//- include ../partials/next_project
+											.projects__credencial__container
+												span.projects__credencial_tittle=projectItem.credits_title
+												span.projects__credencial_description=projectItem.credits_text
+		//  Next Project
+
+		include ../partials/next_project
 
 		//  Footer
 
 		footer
-			pre.
-				!{JSON.stringify(project_intern, null, 2)}
+			//- pre.
+			//- 	!{JSON.stringify(project_intern, null, 2)}
 
 			include ../partials/footer

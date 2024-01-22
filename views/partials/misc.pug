@@ -1,13 +1,13 @@
-section.misc_wrapper
-	.gallery
-		.misc_title
-			span.title Misc
+section.misc
+	.misc__wrapper
+		.misc__title
+			span.misc__title Misc
 
 
 
-		.gallery__wrapper
+		.misc__gallery__wrapper
 			each item in home[2].data.gallery
 				figure.misc__gallery__media(class=`home__gallery__media--${index % 3 + 1}`)
-					img.about__gallery__media__image(alt=item.misc_images.alt src=item.misc_images.url)
-		.seta__wrapper
-			svg.icon
+					img.misc__gallery__media__image(alt=item.misc_images.alt src=item.misc_images.url)
+		.misc__seta__wrapper
+			svg.misc__icon

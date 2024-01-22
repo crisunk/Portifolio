@@ -1,34 +1,34 @@
-section#page_wrapper.screen
+section.about
 
 
-	.about
-		.text__wrapper
-			span.text_tittle=home[3].data.bio
-			.img__wrapper
-				figure.bio__image__box
-								img.bio__image( src=home[3].data.bio_image.url alt=home[3].data.bio_image.alt)
+	.about__wrapper
+		.about__text__wrapper
+			span.about__text_tittle=home[3].data.bio
+			.about__img__wrapper
+				figure.about__bio__box
+					img.about__bio__image( src=home[3].data.bio_image.url alt=home[3].data.bio_image.alt)
 
 
-	.about-discription
-		span.text_tittle
+	.about__discription
+		span.about__text_tittle
 			p=home[3].data.bio
 
-		.contact
-			span.text_email
-				.line__01
+		.about__contact
+			span.about__text__email
+				.about__line__01
 					|Lets talk.
-				.line__02
+				.about__line__02
 				| Send-me a&nbsp;
-				a(href="mailto:mail@mail.com") Email
-					.detail_email
+				a.about__email-link(href="mailto:mail@mail.com") Email
+					.about__email-link__detail
 
 
 
-		.socialmidia
-			.navigation_list
+		.about__socialmidia
+			.about__navigation__list
 				each item in home[3].data.social
-					.navigation_list_item
-						span.text_tittle
-							a.navigation__list__link(href="item.url")=item.name
-								.detail__(class=`separation__line__${index % 3 + 1}`)
-						.serapation
+					.about__navigation_list_item
+						span.about__text_tittle
+							a.about__navigation__list__link(href="item.url")=item.name
+								.about__detail(class=`separation__line__${index % 3 + 1}`)
+						.about__serapation

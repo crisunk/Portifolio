@@ -1,7 +1,7 @@
-section#project_wrapper.screen
+section.project
 
-	each projectItem in project
-		.project_wrapper
+	each projectItem, index in project
+		.project__container(class=`id__${index + 1}`)
 
 			.project
 

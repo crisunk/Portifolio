@@ -94,40 +94,51 @@ app.get('/', async (req, res) => {
 
 
 
+
+
 // app.get('/projects/:uid', async (req, res) => {
-// 	const api = await initApi(req)
-// 	const project_intern = await api.getByUID('project', req.params.uid)
-// 	const meta_data = await api.getSingle('meta_data')
-// 	const consolidate = [project_intern, meta_data]
-//   const similar_content = await api.getSingle('project',{
-//     filters: [Prismic.filter.not("my.project.uid", "type")],
-//   })
+//   try {
+//     const api = await initApi(req);
+//     const project_intern = await api.getByUID('project', req.params.uid);
+//     const meta_data = await api.getSingle('meta_data')
 
-// 	console.log('dados consolidados:',similar_content)
 
-// 	res.render('pages/projects', { consolidate, project_intern, meta_data, similar_content })
+//     // similar content query
+// 		const similar_content = await api.getSingle('project', Prismic.filter.not( req.params.uid))
 
+//     console.log('dados consolidados:', {similar_content})
+
+//     res.render('pages/projects', { project_intern, meta_data, similar_content });
+//   } catch (error) {
+//     console.error('Erro ao obter dados do Prismic:', error)
+
+//     // in case of errors
+
+//     res.status(500).send('Erro interno ao processar a solicitação.')
+//   }
 // })
+
 
 app.get('/projects/:uid', async (req, res) => {
   try {
     const api = await initApi(req);
     const project_intern = await api.getByUID('project', req.params.uid);
-    const meta_data = await api.getSingle('meta_data')
+    const meta_data = await api.getSingle('meta_data');
 
+    // Similar content query
+    const similars = await api.getByType('project', {
+      filters: [
+        Prismic.filter.not('my.project.uid', req.params.uid)
+      ]
+    })
 
-    // similar content query
-		const similar_content = await api.getSingle('project', Prismic.filter.not( req.params.uid))
+    console.log('dados consolidados:', similars);
 
-    console.log('dados consolidados:', {similar_content})
-
-    res.render('pages/projects', { project_intern, meta_data, similar_content });
+    res.render('pages/projects', { project_intern, meta_data, similars });
   } catch (error) {
-    console.error('Erro ao obter dados do Prismic:', error)
-
+    console.error('Erro ao obter dados do Prismic:', error);
     // in case of errors
-
-    res.status(500).send('Erro interno ao processar a solicitação.')
+    res.status(500).send('Internal Server Error');
   }
 })
 

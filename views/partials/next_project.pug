@@ -1,23 +1,22 @@
-section#project_wrapper.screen
 
-		.next__project__section
-			.next__wrapper
-				.next__content
-					span.next
 
-					.next__box
-						.project__box
-						span.text_tittle=projectItem.data.name
+//- código aleátorio
+- var randomIndex = Math.floor(Math.random() * similars.results.length);
 
-						.discription_type
-							span.project-type=projectItem.data.type
+section.next
+	.next__box
+		.next__box__wrapper
+			.next__box__tittle
+				span.next__text__tittle=similars.results[randomIndex].data.name
 
-						.text__description
-							span.text_discription=projectItem.data.description
+			.next__box__type
+				span.next__project-type=similars.results[randomIndex].data.type
 
-						button.button__arrow(href='/projects/' + projectItem.uid)
-							span.button_text
-							| See more
-						figure.icon__arrow
-						svg
+			.next__box__description
+				span.next__text__discription=similars.results[randomIndex].data.description
 
+			button.next__button__arrow(href='/projects/' + similars.results[randomIndex].uid)
+				span.next__button__text
+					| See more
+			figure.next__icon__arrow
+				svg
