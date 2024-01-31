@@ -1,0 +1,15 @@
+$color-black: #000A22;
+$color-white: #ffffff;
+$color-blue: #006DEC;
+$color-lightblue: #B6E5FF;
+
+$font-inter: 'inter';
+
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+
+$z-indexes: (
+	'navigation',
+	'content',
+	'arrow',
+	'logo'
+);

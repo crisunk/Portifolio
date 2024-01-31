@@ -2,12 +2,15 @@
   "name": "portifolio",
   "version": "1.0.0",
   "description": "",
+  "main": "app.js",
+  "sideEffects": false,
   "scripts": {
     "backend:build": "nodemon --inspect node app.js",
     "backend:development": "nodemon app.js",
     "frontend:build": "webpack --progress --config webpack.config.build.js",
     "frontend:development": "webpack-dev-server --progress --config webpack.config.development.js",
-    "start": "concurrently  --kill-others \"npm run backend:development\" \"npm run frontend:development\""
+    "sass": "sass --watch styles/index.scss public/css/main.css",
+    "start": "concurrently  --kill-others \"npm run backend:development\" \"npm run frontend:development\" \"npm run sass\" "
   },
   "author": "Cristiano Cruz Rodrigues",
   "devDependencies": {
@@ -56,6 +59,7 @@
     "concurrently": "^8.2.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "include-media": "^2.0.0",
     "nodelist-foreach-polyfill": "^1.2.0",
     "nodemon": "^3.0.2"
   }

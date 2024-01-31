@@ -3,21 +3,17 @@ extends ../base.pug
 //- block variables
 //- 	- var template = 'home'
 
-mixin pageWrapper
-	section._wrapper
+//- mixin pageWrapper
+//- 	section.home__wrapper
 
 block content
-
-	pageWrapper
-		block wrapper
-
-			include ../partials/intro
-			include ../partials/project
-			include ../partials/misc
-			include ../partials/about
+	include ../partials/intro
+	include ../partials/project
+	include ../partials/misc
+	include ../partials/about
 
 	footer
-		pre.
-			!{JSON.stringify(home, null, 2)}
+		//- pre.
+		//- 	!{JSON.stringify(home, null, 2)}
 
 		include ../partials/footer

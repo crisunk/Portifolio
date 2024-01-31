@@ -1,9 +1,12 @@
-.about__wrapper{
-
+.about{
+	@extend %cover;
 
 }
 
-.about{
+.about__wrapper{
+	width: 100%;
+	height: 100%;
+	position: relative;
 
 
 }
@@ -19,6 +22,8 @@
 }
 
 .about__img__wrapper{
+	width: auto;
+	height: auto;
 
 
 }
@@ -29,7 +34,8 @@
 }
 
 .about__bio__image{
-
+	width: 50%;
+	height: auto;
 
 }
 

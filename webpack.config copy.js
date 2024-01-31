@@ -14,9 +14,9 @@ module.exports = {
       IS_DEVELOPMENT: JSON.stringify(IS_DEVELOPMENT)
     }),
 
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*', '!public', '!public/**', '!css', '!css/**']
-    }),
+    // new CleanWebpackPlugin({
+    //   cleanOnceBeforeBuildPatterns: ['**/*', '!public', '!public/**']
+    // }),
 
     new MiniCssExtractPlugin({
       filename: '[name].css',

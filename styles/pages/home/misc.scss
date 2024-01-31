@@ -1,22 +1,33 @@
+.misc{
+	@extend %cover;
+	position: relative;
+	overflow: hidden;
+
+}
+
 .misc__wrapper{
 
 }
-.misc__gallery{
 
-}
 .misc__title{
 
 }
-.Misc{
+.misc__title__text{
 
 }
+
 .misc__gallery__wrapper{
-
+	align-items: flex-start;
+	max-width: 1246px;
+	display: flex;
+	direction: horizontal;
 }
+
+
 .misc__gallery__media{
 
 }
-.misc_images.url{
+.misc__gallery__media__image{
 
 }
 .misc__seta__wrapper{

@@ -1,64 +1,71 @@
+//intro
 
 .intro{
+	@extend %cover;
+	box-sizing: border-box;
+	display: flex;
+	height: 100vh;
 
 }
-
 .intro__wrapper{
+	display: flex;
+	flex-direction: column;
+	direction: vertical;
+	justify-content: center;
+	align-items: flex-start;
+	box-sizing: border-box;
+	padding: 5%;
+
 
 }
-
-.intro__line__01{
-
-}
-
-.intro__mover__clip{
-
-}
-
-.intro__mover{
-
-}
-
-.intro__line__role{
-
-}
-
-.intro__text__title{
-
-}
-
-.intro{
-
-}
-
-.intro__line{
-
+.intro__line__01 {
+	display: flex;
+	direction: horizontal;
+	width: auto;
+	height: 5rem;
+	gap: 0.8em;
 }
 
 .intro__line__02{
+	display: flex;
+	direction: horizontal;
+	width: auto;
+	height: 5rem;
+}
+
+.intro__clip{
+	height: 5rem;
+	overflow: hidden;
+
+}
+.intro__mover{
+
+}
+.intro__role{
+	@extend %tittle-68;
+	display: flex;
+	color: $color-black;
+
+}
+.intro__text__line{
+	@extend %tittle-68;
+	width: auto;
+	display: flex;
+	direction: horizontal;
+	color: $color-blue;
 
 }
 
-.intro{
 
+//botão
+
+.intro__button{
+	margin-top: 6em;
+	width: auto;
+	box-sizing: border-box;
+	padding: 0.6rem;
+	color: none;
 }
-
-.intro__line{
-
-}
-
-.intro__button__box{
-
-}
-
-.intro__button__text__wrapper{
-
-}
-
-.intro__button_text{
-
-}
-
-.intro__icon{
+.intro__button__text{
 
 }

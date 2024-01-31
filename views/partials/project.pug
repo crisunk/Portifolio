@@ -3,23 +3,23 @@ section.project
 	each projectItem, index in project
 		.project__container(class=`id__${index + 1}`)
 
-			.project
+			.project__wrapper
 
 				.project__box
 					span.text_tittle=projectItem.data.name
 
-					.discription_type
+					.project__discription_type
 						span.project-type=projectItem.data.type
 
-					.text__description
+					.project__text__description
 						span.text_discription=projectItem.data.description
 
-					button.wrapper__tbn
-						a.button__arrow( href='/projects/' + projectItem.uid)
-							span.button_text See more
+					.project__wrapper__tbn
+						a.project__button__arrow( href='/projects/' + projectItem.uid)
+							span.project__button_text See more
 
-				.img__background_wrapper
-					figure.background__image
+				.project__img__background__wrapper
+					figure.project__background
 						img.project__background__image(src=projectItem.data.cover.url alt=projectItem.data.cover.alt)
 
 

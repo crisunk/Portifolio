@@ -1,0 +1,371 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button {
+  border: none;
+}
+
+button:focus {
+  border: none;
+  outline: none;
+}
+
+button:focus {
+  outline: none !important;
+}
+
+.about, .misc, .project, .intro, .home__fullpage-wrapper, .preloader, .content {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.dg.ac {
+  z-index: 999999 !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+@font-face {
+  font-family: "inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/intervariable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/intervariable-italic.woff2") format("woff2");
+}
+.intro__text__line, .intro__role, .preloader__loader {
+  font-family: "inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 4.25rem;
+  line-height: 103%;
+}
+
+.text_tittle {
+  font-family: "inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 103%;
+}
+
+.navigation__logo {
+  font-family: "inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 103%;
+  text-decoration: none;
+}
+
+.project__button_text {
+  font-family: "inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 103%;
+}
+
+.text_discription {
+  font-family: "inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 103%;
+}
+
+.project-type {
+  font-family: "inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.625rem;
+  line-height: 103%;
+}
+
+.navigation__list__link {
+  font-family: "inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 103%;
+  text-decoration: none;
+}
+
+.footer__wrapper {
+  width: 100vw;
+}
+
+.navigation {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+.navigation__wrapper {
+  display: flex;
+  padding: 2em;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.navigation__logo {
+  color: #006DEC;
+}
+
+.navigation___icon {
+  display: none;
+}
+
+.navigation__list {
+  display: flex;
+  justify-content: right;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.125rem;
+  background: #000A22;
+  border-radius: 3rem;
+}
+
+.navigation__list__item {
+  box-sizing: border-box;
+  display: flex;
+  padding: 0.5rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+
+.navigation__list__link {
+  text-align: center;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: #FFF;
+}
+
+.preloader {
+  display: none !important;
+  position: absolute;
+  display: flex;
+  justify-content: left;
+  background-color: beige;
+}
+
+.preloader__bar {
+  background-color: f5f5f5;
+  width: 100%;
+  height: 25rem;
+}
+
+.preloader__loader {
+  position: absolute;
+  padding-left: 2rem;
+  bottom: 2rem;
+}
+
+.intro {
+  box-sizing: border-box;
+  display: flex;
+  height: 100vh;
+}
+
+.intro__wrapper {
+  display: flex;
+  flex-direction: column;
+  direction: vertical;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 5%;
+}
+
+.intro__line__01 {
+  display: flex;
+  direction: horizontal;
+  width: auto;
+  height: 5rem;
+  gap: 0.8em;
+}
+
+.intro__line__02 {
+  display: flex;
+  direction: horizontal;
+  width: auto;
+  height: 5rem;
+}
+
+.intro__clip {
+  height: 5rem;
+  overflow: hidden;
+}
+
+.intro__role {
+  display: flex;
+  color: #000A22;
+}
+
+.intro__text__line {
+  width: auto;
+  display: flex;
+  direction: horizontal;
+  color: #006DEC;
+}
+
+.intro__button {
+  margin-top: 6em;
+  width: auto;
+  box-sizing: border-box;
+  padding: 0.6rem;
+  color: none;
+}
+
+.project {
+  align-items: center;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+.project__container {
+  width: auto;
+  height: auto;
+}
+
+.project__wrapper {
+  width: auto;
+  height: auto;
+  position: relative;
+}
+
+.project__box {
+  width: 22rem;
+  height: auto;
+  position: absolute;
+  direction: vertical;
+  background-color: white;
+  flex-direction: column;
+  padding: 2.5em 4em;
+  display: flex;
+  gap: 18px;
+  inset: auto auto 6% 3%;
+}
+
+.text_tittle {
+  color: #006DEC;
+}
+
+.project-type {
+  color: #ffffff;
+}
+
+.project__discription_type {
+  padding: 0.625rem;
+  gap: 0.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000A22;
+  border-radius: 2.75rem;
+  background: #000A22;
+  width: fit-content;
+}
+
+.project__button_text {
+  color: #006DEC;
+  align-items: center;
+}
+
+.project__background__image {
+  max-width: 100vw;
+}
+
+.misc {
+  position: relative;
+  overflow: hidden;
+}
+
+.misc__gallery__wrapper {
+  align-items: flex-start;
+  max-width: 1246px;
+  display: flex;
+  direction: horizontal;
+}
+
+.about__wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.about__img__wrapper {
+  width: auto;
+  height: auto;
+}
+
+.about__bio__image {
+  width: 50%;
+  height: auto;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,16 +1,13 @@
 require('dotenv').config()
-
 const express = require('express')
 const app = express()
 const path = require('path')
 const Prismic = require('@prismicio/client')
 const PrismicH = require('@prismicio/helpers')
-// const { type } = require('os')
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args))
 
 
 
-const port = 3000
 
 // Função para resolver URLs de imagens
 const resolveImage = (image) => {
@@ -30,15 +27,21 @@ const initApi = (req) => {
   })
 }
 
-// Resolver de links
-const handleLinkResolver = (doc) => {
-  return '/';
-}
-
 // Configurações do Express
+
+
+app.use(express.static(path.join(__dirname, 'public')))
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'views'))
 app.locals.basedir = app.get('views')
+const port = 3000
+console.log(path.join(__dirname, 'public'))
+
+
+// app.get('./', function(req, res){
+// 	res.sendFile(path.join(__dirname + 'views'))
+// })
+
 
 // Middleware para adicionar informações Prismic às respostas
 app.use(async (req, res, next) => {
@@ -46,7 +49,7 @@ app.use(async (req, res, next) => {
 
   res.locals.ctx = {
     endpoint: process.env.PRISMIC_ENDPOINT,
-    linkResolver: handleLinkResolver,
+    // linkResolver: handleLinkResolver,
   }
 
   res.locals.PrismicH = {
@@ -69,7 +72,7 @@ app.get('/', async (req, res) => {
 
     const home = [intro, project, misc, about, meta_data]
 
-    console.log('seus dados:', project)
+    // console.log('seus dados:', project)
 
     res.render('pages/home', { home, about, project })
   } catch (error) {
@@ -77,46 +80,6 @@ app.get('/', async (req, res) => {
     res.status(500).send('Erro ao carregar conteúdo. Por favor, tente novamente mais tarde.')
   }
 })
-
-// working code
-
-// app.get('/projects/:uid', async (req, res) => {
-
-//     const api = await initApi(req)
-// 		const uid = req.params.uid
-// 		const project_intern = await api.getByUID('project')
-// 		const meta_data = await api.getSingle('meta_data')
-
-// 		res.render('pages/projects', { project_intern, meta_data })
-
-
-// 	})
-
-
-
-
-
-// app.get('/projects/:uid', async (req, res) => {
-//   try {
-//     const api = await initApi(req);
-//     const project_intern = await api.getByUID('project', req.params.uid);
-//     const meta_data = await api.getSingle('meta_data')
-
-
-//     // similar content query
-// 		const similar_content = await api.getSingle('project', Prismic.filter.not( req.params.uid))
-
-//     console.log('dados consolidados:', {similar_content})
-
-//     res.render('pages/projects', { project_intern, meta_data, similar_content });
-//   } catch (error) {
-//     console.error('Erro ao obter dados do Prismic:', error)
-
-//     // in case of errors
-
-//     res.status(500).send('Erro interno ao processar a solicitação.')
-//   }
-// })
 
 
 app.get('/projects/:uid', async (req, res) => {

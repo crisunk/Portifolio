@@ -1,21 +1,21 @@
 section.intro
 	.intro__wrapper
 		.intro__line__01
-			.intro__mover__clip
+			.intro__clip
 				.intro__mover
 					each item in home[0].data.role
-						span.intro__line__role(class=`home__gallery__media--${index % 5 + 1}`)=item.designer
+						span.intro__role(class=`home__gallery__media--${index % 5 + 1}`)=item.designer
 
-			.intro__text__title
-				each item in home[0].data.intro
-					span.intro__line=item.line_01
+
+			each item in home[0].data.intro
+				span.intro__text__line=item.line_01
 
 		.intro__line__02
-		each item in home[0].data.intro
-			span.intro__line=item.line_02
+			each item in home[0].data.intro
+				span.intro__text__line=item.line_02
 
-	button.intro__button__box
-		.intro__button__text__wrapper(href="#project")
-				span.intro__button_text=home[0].data.button
-				svg.intro__icon
+		button.intro__button
+			a.intro__button__text(href="#project")=home[0].data.button
+
+					//- svg.intro__icon
 

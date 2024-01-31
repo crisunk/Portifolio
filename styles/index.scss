@@ -1,0 +1,68 @@
+// reset
+
+@import './base/reset';
+
+//utils
+
+@import './utils/functions';
+
+@import './utils/mixins';
+
+@import './utils/vendors';
+
+@import './utils/variables';
+
+@import './utils/responsive';
+
+//base
+
+@import './base/base';
+
+@import './base/fonts';
+
+
+//shared
+
+@import './shared/tittles';
+
+@import './shared/type';
+
+// layout
+
+@import './layout/footer';
+
+@import './layout/navigation';
+
+
+// components
+
+@import './components/btn';
+
+//home
+
+@import './pages/home/preloader';
+
+@import './pages/home/home';
+
+@import './pages/home/intro';
+
+@import './pages/home/project';
+
+@import './pages/home/misc';
+
+@import './pages/home/about';
+
+
+
+// projects
+@import './pages/projects/project';
+
+@import './pages/projects/content';
+
+@import './pages/projects/credencials';
+
+@import './pages/projects/description';
+
+@import './pages/projects/next';
+
+
