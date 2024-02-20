@@ -38,11 +38,6 @@ const port = 3000
 console.log(path.join(__dirname, 'public'))
 
 
-// app.get('./', function(req, res){
-// 	res.sendFile(path.join(__dirname + 'views'))
-// })
-
-
 // Middleware para adicionar informações Prismic às respostas
 app.use(async (req, res, next) => {
   const api = await initApi(req)

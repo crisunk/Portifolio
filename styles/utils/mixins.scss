@@ -8,11 +8,15 @@
 }
 
 %center {
+	display: flex;
   align-items: center;
-  display: flex;
   justify-content: center;
 	top: 0px;
 	left: 0px;
+}
+%cover{
+min-width: 100vw;
+min-height: 100vh;
 }
 
 @mixin ratio ($height, $width) {

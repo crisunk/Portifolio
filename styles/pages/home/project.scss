@@ -1,6 +1,6 @@
 .project{
 	@extend %cover;
-
+	line-height: 0;
 	align-items: center;
 	max-width: 100vw;
 	box-sizing: border-box;
@@ -20,7 +20,7 @@
 
 }
 .project__box{
-	width: 22rem;
+	width: 24rem;
 	height: auto;
 	position: absolute;
 	direction: vertical;

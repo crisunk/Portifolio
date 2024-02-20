@@ -9,13 +9,6 @@ const TerserPlugin = require('terser-webpack-plugin');
 const IS_DEVELOPMENT = process.env.NODE_ENV === 'dev';
 
 module.exports = {
-
-	entry: './app/main.js', // Ponto de entrada
-  output: {
-    path: path.resolve(__dirname, 'dist'), // Pasta de saída
-    filename: 'main.js' // Nome do arquivo de saída
-  },
-
   plugins: [
     new webpack.DefinePlugin({
       IS_DEVELOPMENT: JSON.stringify(IS_DEVELOPMENT)
@@ -47,8 +40,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'shared',
-          to: ''
+          from: 'app/main.js',
+          to: 'public/main.js'
         }
       ]
     })
